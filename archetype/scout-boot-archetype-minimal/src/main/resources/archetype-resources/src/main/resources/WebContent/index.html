@@ -1,0 +1,21 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#macro( ccase $str )
+#foreach( $word in $artifactId.split('-') )$word.substring(0,1).toUpperCase()$word.substring(1)#end
+#end
+#set( $classNamePrefix = "#ccase( $artifactId )" )
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>${classNamePrefix}</title>
+    <scout:stylesheet src="res/${artifactId}-macro.less" />
+    <scout:script src="res/jquery-all-macro.js" />
+    <scout:script src="res/${artifactId}-macro.js" />
+    <scout:script src="res/index.js" />
+  </head>
+  <body>
+    <div class="scout" data-partid="1"></div>
+  </body>
+</html>
