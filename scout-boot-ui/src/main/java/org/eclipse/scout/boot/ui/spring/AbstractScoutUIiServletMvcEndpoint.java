@@ -33,6 +33,8 @@ public abstract class AbstractScoutUIiServletMvcEndpoint extends AbstractNamedMv
 		super(servletName, "/", true);
 		this.controller.setServletClass(servletClass);
 		this.controller.setServletName(servletName);
+		
+		setSensitive(false);
 	}
 
 	/**
