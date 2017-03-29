@@ -5,9 +5,9 @@ import org.eclipse.scout.rt.client.IClientSession;
 import org.eclipse.scout.rt.client.session.ClientSessionProvider;
 import org.eclipse.scout.rt.platform.BEANS;
 
-public abstract class AbstractSpringBootClientSession extends AbstractClientSession {
+public abstract class AbstractScoutBootClientSession extends AbstractClientSession {
 
-	public AbstractSpringBootClientSession() {
+	public AbstractScoutBootClientSession() {
 		super(true);
 	}
 
@@ -15,8 +15,8 @@ public abstract class AbstractSpringBootClientSession extends AbstractClientSess
 	 * @return The {@link IClientSession} which is associated with the current
 	 *         thread, or <code>null</code> if not found.
 	 */
-	public static AbstractSpringBootClientSession get() {
-		return ClientSessionProvider.currentSession(AbstractSpringBootClientSession.class);
+	public static AbstractScoutBootClientSession get() {
+		return ClientSessionProvider.currentSession(AbstractScoutBootClientSession.class);
 	}
 
 	@Override
