@@ -28,6 +28,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * 'META-INF/services/org.eclipse.scout.rt.platform'.
  */
 public class ScoutBootPlatform extends PlatformImplementor implements ApplicationListener<ApplicationReadyEvent> {
+	  
 	// TODO Reactor that Scout gets started when Spring is Ready
 	// TODO Check Platform stop
 
@@ -74,7 +75,8 @@ public class ScoutBootPlatform extends PlatformImplementor implements Applicatio
 
 		for (final Class<?> bean : new ScoutBootBeanFilter().withNoArgConstructorRequired(false)
 				.withIgnoredBeanClass(WebappEventListener.ServletContextRegistration.class.getName())
-				.collect(ClassInventory.get())) {
+				.collect(ClassInventory.get())) 
+		{
 			beanManager.registerClass(bean);
 		}
 

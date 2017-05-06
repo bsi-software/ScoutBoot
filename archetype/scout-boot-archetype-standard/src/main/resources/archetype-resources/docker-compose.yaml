@@ -1,0 +1,38 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#macro( ccase $str )
+#foreach( $word in $artifactId.split('-') )$word.substring(0,1).toUpperCase()$word.substring(1)#end
+#end
+#set( $classNamePrefix = "#ccase( $artifactId )" )
+version: '3'
+
+services:
+  tasks:
+    image: ${artifactId}:${version}
+    container_name: ${artifactId}_app
+    command: >
+      java -jar /opt/${artifactId}-${version}.jar 
+        --spring.datasource.url=jdbc:postgresql://db:5432/postgres
+        --spring.datasource.username=postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - tasks
+    depends_on:
+      - db
+  db:
+    image: postgres:9.6
+    container_name: ${artifactId}_db
+    networks:
+      - ${artifactId}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+networks:
+  ${artifactId}:
+    driver: bridge
+

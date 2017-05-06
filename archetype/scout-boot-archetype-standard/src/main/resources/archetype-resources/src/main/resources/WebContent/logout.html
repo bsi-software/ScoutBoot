@@ -1,0 +1,23 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#macro( ccase $str )
+#foreach( $word in $artifactId.split('-') )$word.substring(0,1).toUpperCase()$word.substring(1)#end
+#end
+#set( $classNamePrefix = "#ccase( $artifactId )" )
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>${classNamePrefix}</title>
+    <scout:include template="head.html" />
+    <scout:stylesheet src="res/${artifactId}-login-macro.less" />
+    <scout:script src="res/jquery-all-macro.js" />
+    <scout:script src="res/${artifactId}-login-macro.js" />
+    <scout:script src="res/logout.js" />
+  </head>
+  <body>
+    <scout:include template="no-script.html" />
+    <scout:message style="tag" key="ui.LogoutSuccessful" key="ui.LoginAgain" />
+  </body>
+</html>

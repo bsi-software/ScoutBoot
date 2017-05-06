@@ -1,0 +1,11 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#macro( ccase $str )
+#foreach( $word in $artifactId.split('-') )$word.substring(0,1).toUpperCase()$word.substring(1)#end
+#end
+#set( $classNamePrefix = "#ccase( $artifactId )" )
+$symbol_pound This file is maintained by the NLS editor.  $symbol_pound
+$symbol_pound To ensure a properly working NLS support    $symbol_pound
+$symbol_pound keep this file untouched.                   $symbol_pound
+Nls-Class=$groupId.$artifactId.scout.ui.TextProviderService
