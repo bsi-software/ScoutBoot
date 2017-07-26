@@ -331,11 +331,11 @@ public class OptionsForm extends AbstractForm {
 		}
 
 		private boolean validateNewPassword() {
-			return getNewPasswordField().validateField();
+			return getNewPasswordField().validateField(passwordService);
 		}
 
 		private boolean validateConfirmPassword() {
-			if (!getConfirmPasswordField().validateField()) {
+			if (!getConfirmPasswordField().validateField(passwordService)) {
 				return false;
 			}
 

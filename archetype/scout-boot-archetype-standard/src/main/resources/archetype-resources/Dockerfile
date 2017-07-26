@@ -5,7 +5,7 @@
 #foreach( $word in $artifactId.split('-') )$word.substring(0,1).toUpperCase()$word.substring(1)#end
 #end
 #set( $classNamePrefix = "#ccase( $artifactId )" )
-FROM openjdk:8-jdk
+FROM java:openjdk-8
 
 COPY target/${artifactId}-${version}.jar /opt/${artifactId}-${version}.jar
 

@@ -9,12 +9,14 @@ version: '3'
 
 services:
   tasks:
-    image: ${artifactId}:${version}
+    image: ${groupId}.${artifactId}:${version}
     container_name: ${artifactId}_app
     command: >
       java -jar /opt/${artifactId}-${version}.jar 
         --spring.datasource.url=jdbc:postgresql://db:5432/postgres
         --spring.datasource.username=postgres
+        --spring.datasource.password=s3cret
+        --spring.jpa.hibernate.ddl-auto=update
     ports:
       - "8080:8080"
     networks:
@@ -27,10 +29,10 @@ services:
     networks:
       - ${artifactId}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - data:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  data:
 
 networks:
   ${artifactId}:

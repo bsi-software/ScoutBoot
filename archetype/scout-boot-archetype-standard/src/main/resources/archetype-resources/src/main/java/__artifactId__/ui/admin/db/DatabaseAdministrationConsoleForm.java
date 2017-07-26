@@ -19,7 +19,6 @@ import org.eclipse.scout.rt.platform.util.concurrent.IRunnable;
 @Bean
 public class DatabaseAdministrationConsoleForm extends AbstractForm {
 
-	// TODO: Read from property
 	protected static final String H2_CONSOLE_URL = "http://localhost:8080/h2-console";
 	protected static final String JDBC_URL = "jdbc:h2:~/${artifactId}_db";
 

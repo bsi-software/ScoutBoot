@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.scout.boot</groupId>
 		<artifactId>scout-boot</artifactId>
-		<version>7.0.0-SNAPSHOT</version>
+		<version>7.0.0.008_Oxygen</version>
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 

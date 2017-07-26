@@ -69,7 +69,9 @@
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory></directory>
 			<includes>
+				<include>docker-compose.yaml</include>
 				<include>Dockerfile</include>
+				<include>README.md</include>
 				<include>.maven-dockerignore</include>
 			</includes>
 		</fileSet>

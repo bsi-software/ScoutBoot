@@ -5,17 +5,12 @@ package ${package}.${artifactId}.ui.admin.user;
 
 import ${package}.${artifactId}.model.service.PasswordService;
 
-import javax.inject.Inject;
-
 import org.eclipse.scout.rt.client.ui.form.fields.stringfield.AbstractStringField;
 import org.eclipse.scout.rt.platform.status.MultiStatus;
 import org.eclipse.scout.rt.platform.status.Status;
 import org.eclipse.scout.rt.shared.TEXTS;
 
 public class AbstractPasswordField extends AbstractStringField {
-
-  @Inject
-  private PasswordService passwordService;
 
   @Override
   protected String getConfiguredLabel() {
@@ -32,7 +27,7 @@ public class AbstractPasswordField extends AbstractStringField {
    *
    * @return true if the password complies with the implemented password policy. in all other cases false is returned.
    */
-  public boolean validateField() {
+  public boolean validateField(PasswordService passwordService) {
     clearErrorStatus();
 
     if (getValue() == null) {
@@ -51,7 +46,7 @@ public class AbstractPasswordField extends AbstractStringField {
     }
 
     // make sure that we catch all relevant password constrains
-    if (passwordService.matchesPasswordPolicy(getValue())) {
+    if (!passwordService.matchesPasswordPolicy(getValue())) {
       setError(TEXTS.get("PasswordPolicyError"));
       return false;
     }

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.scout.boot</groupId>
 		<artifactId>scout-boot</artifactId>
-		<version>7.0.0-SNAPSHOT</version>
+		<version>7.0.0.008_Oxygen</version>
 	</parent>
 
 	<groupId>${groupId}</groupId>
@@ -89,7 +89,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>${groupId}:${artifactId}_${project.version}</name>
+							<name>${groupId}.${artifactId}:${project.version}</name>
 							<alias>${artifactId}</alias>
 							<build>
 								<dockerFileDir>${project.basedir}</dockerFileDir>

@@ -126,7 +126,7 @@ public class UserForm extends AbstractForm {
 
 			@Override
 			protected void execChangedValue() {
-				validateField();
+				validateField(passwordService);
 			}
 		}
 

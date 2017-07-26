@@ -27,7 +27,7 @@ import org.eclipse.scout.rt.platform.util.collection.OrderedCollection;
 import org.eclipse.scout.rt.shared.TEXTS;
 
 /**
- * This Spring managed bean represents the web application.
+ * This Spring managed bean represents the desktop of web applications user interface.
  */
 @Bean
 public class Desktop extends AbstractDesktop {

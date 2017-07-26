@@ -15,6 +15,7 @@ import ${package}.${artifactId}.model.service.PasswordService;
 import ${package}.${artifactId}.model.service.RoleService;
 import ${package}.${artifactId}.model.service.UserService;
 import ${package}.${artifactId}.ui.ResourceBase;
+import ${package}.${artifactId}.ui.admin.ViewAdminOutlinePermission;
 import ${package}.${artifactId}.ui.admin.db.ReadDatabaseAdministrationConsolePermission;
 import ${package}.${artifactId}.ui.admin.user.UserPictureProviderService;
 import ${package}.${artifactId}.ui.business.task.CreateTaskPermission;
@@ -112,7 +113,7 @@ public class DefaultUserService implements UserService, MapperService<User, User
 
 		userRepository.save(convertToEntity(user, UserEntity.class));
 		if (accessControlService != null) {
-			// accessControlService.clearCache();
+			accessControlService.clearCache();
 		}
 	}
 
@@ -204,7 +205,7 @@ public class DefaultUserService implements UserService, MapperService<User, User
 		}
 		Map<String, String[]> roles = new HashMap<>();
 		roles.put(API, new String[] { ReadApiPermission.class.getName() });
-		roles.put(DBA, new String[] { ReadDatabaseAdministrationConsolePermission.class.getName() });
+		roles.put(DBA, new String[] { ReadDatabaseAdministrationConsolePermission.class.getName(), ViewAdminOutlinePermission.class.getName() });
 		roles.put(SUPER_USER, new String[] { ReadTaskPermission.class.getName(), CreateTaskPermission.class.getName(),
 				UpdateTaskPermission.class.getName(), ViewAllTasksPermission.class.getName() });
 		roles.put(USER, new String[] { ReadTaskPermission.class.getName(), CreateTaskPermission.class.getName(),

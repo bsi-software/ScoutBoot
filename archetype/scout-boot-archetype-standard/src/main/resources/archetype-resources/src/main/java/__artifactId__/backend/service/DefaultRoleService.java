@@ -52,7 +52,7 @@ public class DefaultRoleService implements RoleService, MapperService<Role, Role
 		validate(role);
 		roleRepository.save(convertToEntity(role, RoleEntity.class));
 		if (accessControlService != null) {
-			//accessControlService.clearCache();
+			accessControlService.clearCache();
 		}
 	}
 

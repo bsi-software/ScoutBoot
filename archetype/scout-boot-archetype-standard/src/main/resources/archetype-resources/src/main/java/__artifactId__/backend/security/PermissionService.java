@@ -18,8 +18,6 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.scout.rt.platform.Order;
-import org.eclipse.scout.rt.platform.config.AbstractStringConfigProperty;
-import org.eclipse.scout.rt.platform.config.CONFIG;
 import org.eclipse.scout.rt.platform.inventory.ClassInventory;
 import org.eclipse.scout.rt.platform.inventory.IClassInfo;
 import org.eclipse.scout.rt.platform.inventory.IClassInventory;
@@ -35,7 +33,25 @@ import org.slf4j.LoggerFactory;
 @Order(4900)
 public class PermissionService implements IPermissionService {
 
-  public static final String EXCLUDE_PROPERTY = "scout.auth.permission.exclude";
+  // list of Scout permissions that are irrelevant for this application
+  public static final String [] EXCLUDE_ARRAY = new String [] {
+    "org.eclipse.scout.rt.shared.security.CreateGlobalBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.ReadGlobalBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.UpdateGlobalBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.DeleteGlobalBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.CreateUserBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.ReadUserBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.UpdateUserBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.DeleteUserBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.PublishUserBookmarkPermission",
+    "org.eclipse.scout.rt.shared.security.CreateCustomColumnPermission",
+    "org.eclipse.scout.rt.shared.security.UpdateCustomColumnPermission",
+    "org.eclipse.scout.rt.shared.security.DeleteCustomColumnPermission",
+    "org.eclipse.scout.rt.shared.security.ReadDiagnosticServletPermission",
+    "org.eclipse.scout.rt.shared.security.UpdateDiagnosticServletPermission",
+    "org.eclipse.scout.rt.shared.security.RemoteServiceAccessPermission",
+    "org.eclipse.scout.rt.shared.security.UpdateServiceConfigurationPermission"
+  };
 
   private static final Logger LOG = LoggerFactory.getLogger(PermissionService.class);
 
@@ -187,29 +203,12 @@ public class PermissionService implements IPermissionService {
     return true;
   }
 
-  public static class ExcludePermissionsProperty extends AbstractStringConfigProperty {
-
-    @Override
-    public String getKey() {
-      return EXCLUDE_PROPERTY;
-    }
-
-    @Override
-    protected String getDefaultValue() {
-      return "";
-    }
-
-  }
-
+  /**
+   * Returns the set of irrelevant (for this application) permissions.
+   */
   private Set<String> getPermissionsToExclude() {
-    String excludePermission = CONFIG.getPropertyValue(ExcludePermissionsProperty.class);
-
-    if (StringUtility.isNullOrEmpty(excludePermission)) {
-      return new HashSet<String>();
-    }
-
     Set<String> excludeList = new HashSet<String>();
-    Arrays.asList(excludePermission.split(","))
+    Arrays.asList(EXCLUDE_ARRAY)
         .stream()
         .forEach(permission -> {
           if (StringUtility.hasText(permission)) {
