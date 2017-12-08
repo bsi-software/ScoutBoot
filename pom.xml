@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	<groupId>org.eclipse.scout.boot</groupId>
 	<artifactId>scout-boot</artifactId>
-	<version>7.0.0.008_Oxygen</version>
+	<version>7.0.150.002</version>
 
 	<packaging>pom</packaging>
 
@@ -20,10 +20,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<scout.version>7.0.0.008_Oxygen</scout.version>
-		<scout.boot.version>7.0.0.008_Oxygen</scout.boot.version>
+		<scout.version>7.0.150.002</scout.version>
+		<scout.boot.version>7.0.150.002</scout.boot.version>
 	</properties>
-
 
 	<modules>
 		<module>scout-boot-platform</module>
@@ -51,22 +50,6 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>eclipse.release</id>
-			<name>eclipse-release-repo</name>
-			<url>https://repo.eclipse.org/content/groups/releases/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>eclipse.snapshot</id>
-			<name>eclipse-snapshot-repo</name>
-			<url>https://repo.eclipse.org/content/groups/snapshots/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
 
 	<build>
@@ -91,7 +74,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -140,7 +123,7 @@
 				<plugin>
 					<groupId>io.fabric8</groupId>
 					<artifactId>docker-maven-plugin</artifactId>
-					<version>0.20.0</version>
+					<version>0.23.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
