@@ -3,6 +3,7 @@
 	<name>scout-boot-ui</name>
 	<comment></comment>
 	<projects>
+		<project>scout-boot-platform</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
