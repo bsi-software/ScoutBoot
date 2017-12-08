@@ -5,6 +5,9 @@ hs_err_pid*
 *.war
 *.ear
 
+# Eclipse
+.settings/
+
 # Maven
 log/
 target/
