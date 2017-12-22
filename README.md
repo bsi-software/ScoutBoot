@@ -1,6 +1,8 @@
 # Scout Boot - [Spring Boot](https://projects.spring.io/spring-boot/) & [Eclipse Scout](https://eclipse.org/scout/) Integration <img src="https://travis-ci.org/BSI-Business-Systems-Integration-AG/SpringBoot-and-EclipseScout.svg">
 
-**Please Note**: This is work in progress and has not (yet) been tested for productive usage.
+**Please Note**: This is only a proof of concept and has not been tested for productive usage nor is there any support available from the scout contributors.
+
+There are currently no plans to publish the modules to Maven Central.
 
 ## Archetype
 
