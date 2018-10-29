@@ -73,7 +73,7 @@ In your browser change to [localhost](http://localhost:8080). This starts the UI
 * alice/test
 * bob/test
 
-In case your user has rights to access the aAPI of the pplications API (log in with root/eclipse to check for this) you can also access the business objects (tasks) via REST.
+In case your user has rights to access the application's API (log in with root/eclipse to check for this) you can also access the business objects (tasks) via REST.
 
 * [http://localhost:8080/api/tasks/today](http://localhost:8080/api/tasks/today)
 * [http://localhost:8080/api/tasks/all](http://localhost:8080/api/tasks/all)
